@@ -74,6 +74,10 @@ export default function LoginForm() {
         {isLoading ? "Logging in..." : "Login"}
       </Button>
 
+      <Button type="submit" className="w-full cursor-pointer">
+        <Link href="dashboard/overview"> Go to dashboard</Link>
+      </Button>
+
       <p className="text-center text-sm text-gray-600">
         Don't have an account?{" "}
         <Link
