@@ -41,9 +41,7 @@ export default function Searchbar() {
           </div>
         </div>
 
-        <Button className="bg-[#db4444] hover:bg-[#db4444] text-white cursor-pointer">
-          Search
-        </Button>
+        <Button variant="primary">Search</Button>
       </div>
     </div>
   );

@@ -31,3 +31,10 @@ export const orderStatus = [
   { label: "Delivered", value: 156, color: "bg-green-500" },
   { label: "Cancelled", value: 3, color: "bg-red-500" },
 ];
+
+export const stockStatus = [
+  { label: "All", value: "All" },
+  { label: "Active", value: "Active" },
+  { label: "Low stock", value: "Low stock" },
+  { label: "Out of stock", value: "Out of stock" },
+];
