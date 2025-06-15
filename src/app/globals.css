@@ -3,6 +3,51 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.react-select__control {
+  @apply border-none shadow-none bg-transparent rounded-md focus:ring-0 focus:border-0 outline-none mt-1 w-45;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.react-select__placeholder {
+  @apply text-gray-400 text-sm;
+}
+
+.react-select__single-value {
+  @apply text-gray-700 text-sm;
+}
+
+.react-select__dropdown-indicator {
+  @apply text-gray-500 px-2;
+}
+
+.react-select__indicators {
+  @apply px-1;
+}
+
+.react-select__indicator-separator {
+  display: none;
+}
+
+.react-select__menu {
+  @apply mt-1 border border-gray-200 shadow-md rounded-md bg-white text-sm z-50;
+}
+
+.react-select__option {
+  @apply px-3 py-2 cursor-pointer;
+}
+
+.react-select__option:hover {
+  background-color: #fce9ec;
+  color: #db4444;
+  cursor: pointer;
+}
+
+.react-select__option--is-selected {
+  background-color: #fce9ec !important;
+  color: #db4444 !important;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

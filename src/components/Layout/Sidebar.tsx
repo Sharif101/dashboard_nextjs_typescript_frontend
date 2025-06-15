@@ -36,10 +36,6 @@ export function Sidebar() {
 
   return (
     <div className="w-64 h-screen bg-white border-r shadow-sm">
-      <div className="p-6 border-b">
-        <h1 className="text-2xl font-bold text-gray-800">MyShop Admin</h1>
-      </div>
-
       <nav className="flex flex-col p-4 space-y-2">
         {sidebarItems.map((item) => {
           const isActive = pathname === item.path;
@@ -48,7 +44,7 @@ export function Sidebar() {
             <Link
               key={item.id}
               href={item.path}
-              className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+              className={`flex items-center px-4 py-3 text-sm font-medium rounded transition-colors ${
                 isActive
                   ? "bg-[#fce9ec] text-[#db4444]"
                   : "text-gray-700 hover:bg-gray-100"
