@@ -19,15 +19,17 @@ export default function Searchbar() {
     <div className="px-6 py-3 border-b bg-white">
       <div className="flex items-center gap-6">
         <div className="flex flex-1 border rounded-md overflow-hidden">
-          <Select
-            options={categories}
-            placeholder="Categories"
-            classNamePrefix="react-select"
-            menuPortalTarget={
-              typeof window !== "undefined" ? document.body : null
-            }
-            onChange={handleCategoryChange}
-          />
+          <div className="min-w-[180px]">
+            <Select
+              options={categories}
+              placeholder="Categories"
+              classNamePrefix="react-select"
+              menuPortalTarget={
+                typeof window !== "undefined" ? document.body : null
+              }
+              onChange={handleCategoryChange}
+            />
+          </div>
 
           <div className="w-px h-6 bg-gray-300 my-auto"></div>
 

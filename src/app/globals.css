@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 .react-select__control {
-  @apply border-none shadow-none bg-transparent rounded-md focus:ring-0 focus:border-0 outline-none mt-1 w-45;
+  @apply border-none shadow-none bg-transparent rounded-md focus:ring-0 focus:border-0 outline-none mt-1;
   box-shadow: none !important;
   border: none !important;
 }

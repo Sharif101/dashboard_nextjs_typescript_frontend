@@ -9,13 +9,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Tab from "./Tab/Tab";
+import Link from "next/link";
 
 export default function Products() {
   return (
     <div>
       <div className="flex items-center justify-between p-4">
         <h2 className="text-[25px] font-semibold text-gray-800">Products</h2>
-        <Button variant="primary">+ Add Product</Button>
+
+        <Link href="/dashboard/products/addproduct">
+          <Button variant="primary">+ Add Product </Button>
+        </Link>
       </div>
 
       <Tab />
