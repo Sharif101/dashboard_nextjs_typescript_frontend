@@ -43,6 +43,11 @@ export default function AddProduct() {
   const [color, setColor] = useState("");
   const [consditionSelected, setConditionSelected] = useState<string>("New");
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [price, setPrice] = useState("");
+  const [salePrice, setSalePrice] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [sku, setSku] = useState("");
+  const [negotiation, setNagotitation] = useState<boolean>(false);
 
   const handleFeatureChange = (feature: string, checked: boolean) => {
     setSelectedFeatures((prev) =>
@@ -169,6 +174,10 @@ export default function AddProduct() {
       color: color,
       product_condition: consditionSelected,
       product_feature: selectedFeatures,
+      price: price,
+      sale_price: salePrice,
+      quantity: quantity,
+      sku: sku,
     };
 
     console.log(details);
@@ -499,25 +508,41 @@ export default function AddProduct() {
                 <Label className="mb-2">
                   Price <span className="text-red-500">*</span>
                 </Label>
-                <Input placeholder="Price ($)" />
+                <Input
+                  placeholder="Price ($)"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />
               </div>
               <div>
                 <Label className="mb-2">
                   Sale Price <span className="text-red-500">*</span>
                 </Label>
-                <Input placeholder="Sale Price ($)" />
+                <Input
+                  placeholder="Sale Price ($)"
+                  value={salePrice}
+                  onChange={(e) => setSalePrice(e.target.value)}
+                />
               </div>
               <div>
                 <Label className="mb-2">
                   Quantity <span className="text-red-500">*</span>
                 </Label>
-                <Input placeholder="Quantity" />
+                <Input
+                  placeholder="Quantity"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
               </div>
               <div>
                 <Label className="mb-2">
                   SKU <span className="text-red-500">*</span>
                 </Label>
-                <Input placeholder="SKU" />
+                <Input
+                  placeholder="SKU"
+                  value={sku}
+                  onChange={(e) => setSku(e.target.value)}
+                />
               </div>
             </div>
           </div>
