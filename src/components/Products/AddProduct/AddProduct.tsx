@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Select from "react-select";
 import { Card } from "@/components/ui/card";
+import { SingleValue } from "react-select";
 import {
   brandOptions,
   categories,
@@ -31,10 +32,15 @@ interface UploadedFile {
 export default function AddProduct() {
   const [productTitle, setProductTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [isDragOver, setIsDragOver] = useState(false);
 
+  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
+  const [storage, setStorage] = useState("");
+  const [ram, setRam] = useState("");
+  const [color, setColor] = useState("");
   const [consditionSelected, setConditionSelected] = useState<string>("New");
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
 
@@ -44,7 +50,17 @@ export default function AddProduct() {
     );
   };
 
-  console.log({ consditionSelected, selectedFeatures });
+  // console.log({
+  //   consditionSelected,
+  //   selectedFeatures,
+  //   uploadedFiles,
+  //   category,
+  //   brand,
+  //   model,
+  //   storage,
+  //   ram,
+  //   color,
+  // });
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -79,7 +95,7 @@ export default function AddProduct() {
         "image/jpg",
         "image/webp",
       ].includes(file.type);
-      const isValidSize = file.size <= 5 * 1024 * 1024; // 5MB
+      const isValidSize = file.size <= 5 * 1024 * 1024;
       return isValidType && isValidSize;
     });
 
@@ -110,9 +126,57 @@ export default function AddProduct() {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
   };
 
+  type OptionType = {
+    label: string;
+    value: string;
+  };
+
+  const handleChangeCategory = (selectedOption: SingleValue<OptionType>) => {
+    setCategory(selectedOption?.value || "");
+  };
+
+  const handleChangeBrand = (selectedOption: SingleValue<OptionType>) => {
+    setBrand(selectedOption?.value || "");
+  };
+
+  const handleChangeModel = (selectedOption: SingleValue<OptionType>) => {
+    setModel(selectedOption?.value || "");
+  };
+
+  const handleChangeStorage = (selectedOption: SingleValue<OptionType>) => {
+    setStorage(selectedOption?.value || "");
+  };
+
+  const handleChangeRam = (selectedOption: SingleValue<OptionType>) => {
+    setRam(selectedOption?.value || "");
+  };
+
+  const handleChangeColor = (selectedOption: SingleValue<OptionType>) => {
+    setColor(selectedOption?.value || "");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const details = {
+      product_title: productTitle,
+      description: description,
+      product_images: uploadedFiles,
+      category: category,
+      brand: brand,
+      model: model,
+      storage: storage,
+      ram: ram,
+      color: color,
+      product_condition: consditionSelected,
+      product_feature: selectedFeatures,
+    };
+
+    console.log(details);
+  };
+
   return (
     <div className="min-h-screen w-full bg-gray-50 p-6 overflow-y-auto">
-      <div className="w-full h-full">
+      <form className="w-full h-full" onSubmit={handleSubmit}>
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
             <Button variant="ghost" size="sm" className="p-1 h-8 w-8">
@@ -241,6 +305,7 @@ export default function AddProduct() {
                   <Select
                     options={categories}
                     placeholder="Categories"
+                    onChange={handleChangeCategory}
                     classNamePrefix="react-select"
                     menuPortalTarget={
                       typeof window !== "undefined" ? document.body : null
@@ -271,6 +336,7 @@ export default function AddProduct() {
                 <Select
                   options={brandOptions}
                   placeholder="Categories"
+                  onChange={handleChangeBrand}
                   classNamePrefix="react-select"
                   menuPortalTarget={
                     typeof window !== "undefined" ? document.body : null
@@ -288,6 +354,7 @@ export default function AddProduct() {
                   <Select
                     options={modelOptions}
                     placeholder="Categories"
+                    onChange={handleChangeModel}
                     classNamePrefix="react-select"
                     menuPortalTarget={
                       typeof window !== "undefined" ? document.body : null
@@ -304,6 +371,7 @@ export default function AddProduct() {
                   <Select
                     options={storageOptions}
                     placeholder="Categories"
+                    onChange={handleChangeStorage}
                     classNamePrefix="react-select"
                     menuPortalTarget={
                       typeof window !== "undefined" ? document.body : null
@@ -320,6 +388,7 @@ export default function AddProduct() {
                   <Select
                     options={ramOptions}
                     placeholder="Categories"
+                    onChange={handleChangeRam}
                     classNamePrefix="react-select"
                     menuPortalTarget={
                       typeof window !== "undefined" ? document.body : null
@@ -336,6 +405,7 @@ export default function AddProduct() {
                   <Select
                     options={colorOptions}
                     placeholder="Categories"
+                    onChange={handleChangeColor}
                     classNamePrefix="react-select"
                     menuPortalTarget={
                       typeof window !== "undefined" ? document.body : null
@@ -470,7 +540,11 @@ export default function AddProduct() {
             <Label htmlFor="negotiation">Enable Negotiation</Label>
           </div>
         </Card>
-      </div>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </form>
     </div>
   );
 }
