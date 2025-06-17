@@ -5,7 +5,7 @@ import Searchbar from "@/components/Layout/Searchbar";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
+    <div className="fixed inset-0 flex flex-col bg-gray-50">
       <Navbar />
       <Searchbar />
       <div className="flex flex-1 overflow-hidden">

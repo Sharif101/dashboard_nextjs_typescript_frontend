@@ -3,6 +3,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 .react-select__control {
   @apply border-none shadow-none bg-transparent rounded-md focus:ring-0 focus:border-0 outline-none mt-1;
   box-shadow: none !important;
