@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Seller Dashboard – Project Documentation
 
-## Getting Started
+# Overview
 
-First, run the development server:
+This project is a Seller Dashboard UI developed with a focus on clean layout and intuitive design. The primary goal is to provide a user-friendly interface for sellers to manage products and view orders. Although the backend functionality is not implemented yet, the UI components are designed and partially interactive.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Features & Pages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dashboard Layout :
+Navbar and Sidebar implemented for smooth navigation.
+Built with a responsive structure to support various screen sizes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Overview Page :
+Designed for a quick glance at performance indicators.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Product List Page :
+Displays a list of existing products in a clean tabular format.
 
-## Learn More
+Add Product Page :
+Allows the addition of new products.
+Includes a drag-and-drop file upload feature for product images.
+Integrated React Select for category and other dropdowns (reusable).
+Newly added product data is shown in the console log for verification.
 
-To learn more about Next.js, take a look at the following resources:
+Order List
+UI designed for listing customer orders.
+Includes a search bar to filter orders.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Order View
+On clicking “View”, a modal popup displays the detailed view of an order.
