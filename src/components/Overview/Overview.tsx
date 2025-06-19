@@ -10,8 +10,8 @@ export default function Overview() {
           Welcome back, John Doe!
         </h1>
         <p className="text-sm text-gray-600">
-          You've made{" "}
-          <span className="font-semibold text-gray-900">$2,450</span> today.
+          Youve made <span className="font-semibold text-gray-900">$2,450</span>{" "}
+          today.
         </p>
       </div>
 

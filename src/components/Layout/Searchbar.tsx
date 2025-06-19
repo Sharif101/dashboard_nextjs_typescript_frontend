@@ -14,6 +14,7 @@ export default function Searchbar() {
   ) => {
     setSelectedCategory(selected?.value || "");
   };
+  console.log({ selectedCategory });
 
   return (
     <div className="px-6 py-3 border-b bg-white">

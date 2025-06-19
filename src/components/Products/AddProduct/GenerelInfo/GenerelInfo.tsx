@@ -44,7 +44,6 @@ export default function GenerelInfo(props: GenerelInfoProps) {
     setDescription,
     productTitle,
     setProductTitle,
-    category,
     setCategory,
   } = props;
 

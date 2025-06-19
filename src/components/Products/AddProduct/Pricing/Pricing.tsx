@@ -27,8 +27,6 @@ export default function Pricing(props: PricingProps) {
     setQuantity,
     sku,
     setSku,
-    negotiation,
-    setNegotiation,
   } = props;
 
   return (

@@ -13,8 +13,15 @@ import {
 import { Button } from "../ui/button";
 import Modal from "../Resources/Modal/Modal";
 import { orders } from "@/utils/data/orders/order";
-import { Order } from "@/utils/data/orders/type";
 import { cn } from "@/lib/utils";
+
+type OrderType = {
+  id: string;
+  date: string;
+  buyer: string;
+  amount: string;
+  status: string;
+};
 
 export default function Order() {
   const [tabs, setTabs] = useState("All");
@@ -38,7 +45,7 @@ export default function Order() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {orders.map((order: Order, index) => (
+            {orders.map((order: OrderType, index) => (
               <TableRow key={index}>
                 <TableCell>{order.id}</TableCell>
                 <TableCell>{order.date}</TableCell>

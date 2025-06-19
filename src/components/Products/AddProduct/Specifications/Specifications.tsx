@@ -40,20 +40,14 @@ type OptionType = {
 
 export default function Specifications(props: SpecificationsProps) {
   const {
-    brand,
     setBrand,
-    model,
     setModel,
-    storage,
     setStorage,
-    ram,
     setRam,
-    color,
     setColor,
     consditionSelected,
     setConditionSelected,
     selectedFeatures,
-    setSelectedFeatures,
     handleFeatureChange,
   } = props;
 

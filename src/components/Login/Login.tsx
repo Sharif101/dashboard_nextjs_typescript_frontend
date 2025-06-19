@@ -79,7 +79,7 @@ export default function LoginForm() {
       </Button>
 
       <p className="text-center text-sm text-gray-600">
-        Don't have an account?{" "}
+        Dont have an account?{" "}
         <Link
           href="/registerform"
           className="text-blue-600 hover:underline font-medium"
