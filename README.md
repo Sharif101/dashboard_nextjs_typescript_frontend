@@ -28,3 +28,4 @@ Includes a search bar to filter orders.
 
 Order View
 On clicking “View”, a modal popup displays the detailed view of an order.
+.
