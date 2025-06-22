@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/table";
 import Tab from "./Tab/Tab";
 import Link from "next/link";
+import { products } from "@/utils/data/orders/product";
+import { ProductType } from "@/utils/data/orders/type";
 
 export default function Products() {
   return (
@@ -38,48 +40,23 @@ export default function Products() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
-              <TableCell>--</TableCell>
-              <TableCell>Premium Cotton Shirt</TableCell>
-              <TableCell>TS-001</TableCell>
-              <TableCell>$100</TableCell>
-              <TableCell>200</TableCell>
-              <TableCell className="text-green-600 font-medium">
-                Active
-              </TableCell>
-              <TableCell className="text-blue-500 cursor-pointer">
-                Edit, Delete
-              </TableCell>
-            </TableRow>
-            {/* Repeat rows as needed */}
-
-            <TableRow>
-              <TableCell>--</TableCell>
-              <TableCell>Premium Cotton Shirt</TableCell>
-              <TableCell>TS-001</TableCell>
-              <TableCell>$100</TableCell>
-              <TableCell>200</TableCell>
-              <TableCell className="text-green-600 font-medium">
-                Active
-              </TableCell>
-              <TableCell className="text-blue-500 cursor-pointer">
-                Edit, Delete
-              </TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell>--</TableCell>
-              <TableCell>Premium Cotton Shirt</TableCell>
-              <TableCell>TS-001</TableCell>
-              <TableCell>$100</TableCell>
-              <TableCell>200</TableCell>
-              <TableCell className="text-green-600 font-medium">
-                Active
-              </TableCell>
-              <TableCell className="text-blue-500 cursor-pointer">
-                Edit, Delete
-              </TableCell>
-            </TableRow>
+            {products.map((item: ProductType, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableCell>--</TableCell>
+                  <TableCell>{item.product_title}</TableCell>
+                  <TableCell>{item.sku}</TableCell>
+                  <TableCell>${item.price}</TableCell>
+                  <TableCell>{item.quantity}</TableCell>
+                  <TableCell className="text-green-600 font-medium">
+                    Active
+                  </TableCell>
+                  <TableCell className="text-blue-500 cursor-pointer">
+                    Edit, Delete
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </div>
