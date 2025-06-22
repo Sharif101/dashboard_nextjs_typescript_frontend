@@ -72,7 +72,9 @@ export default function Order() {
                   >
                     View
                   </Button>
-                  <Button variant="primary">Shipped</Button>
+                  <Link href="/dashboard/orders/orderdetail">
+                    <Button variant="primary">Shipped</Button>
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}

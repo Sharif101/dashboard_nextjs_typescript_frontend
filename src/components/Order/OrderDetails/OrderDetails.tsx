@@ -3,19 +3,22 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  FaPhoneAlt,
-  FaPrint,
-  FaCheckCircle,
-  FaRegCircle,
-} from "react-icons/fa";
+import { FaArrowLeft, FaPhoneAlt, FaPrint, FaRegCircle } from "react-icons/fa";
+import { BsCheck2Circle } from "react-icons/bs";
 
 export default function OrderDetails() {
   return (
     <div className="max-w-8xl mx-auto p-6 space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Order Details</h1>
+        <div className="flex items-center gap-3 mb-2">
+          <Button variant="ghost" size="sm" className="p-1 h-8 w-8">
+            <FaArrowLeft className="h-4 w-4" />
+          </Button>
+          <h1 className="text-2xl font-semibold text-gray-900">
+            Order Details
+          </h1>
+        </div>
         <div className="flex gap-2">
           <Button variant="outline">
             <FaPrint className="mr-2 h-4 w-4" /> Print Invoice
@@ -89,7 +92,7 @@ export default function OrderDetails() {
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-2">
                   {item.active ? (
-                    <FaCheckCircle className="text-blue-600 w-4 h-4 mt-1" />
+                    <BsCheck2Circle className="text-blue-600 w-4 h-4 mt-1" />
                   ) : (
                     <FaRegCircle className="text-gray-400 w-4 h-4 mt-1" />
                   )}
