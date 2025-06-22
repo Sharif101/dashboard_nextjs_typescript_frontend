@@ -4,4 +4,5 @@ export type Order = {
   buyer: string;
   amount: string;
   status: string;
+  product_name: string;
 };

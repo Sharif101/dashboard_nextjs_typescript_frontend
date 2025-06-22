@@ -21,11 +21,19 @@ type OrderType = {
   buyer: string;
   amount: string;
   status: string;
+  product_name: string;
 };
 
 export default function Order() {
   const [tabs, setTabs] = useState("All");
   const [viewModal, setViewModal] = useState(false);
+  const [singleOrderDetails, setSingleOrderDetails] =
+    useState<OrderType | null>(null);
+
+  const handleShip = () => {
+    console.log("Order shipped!");
+    setViewModal(false);
+  };
 
   return (
     <div>
@@ -62,7 +70,13 @@ export default function Order() {
                   {order.status}
                 </TableCell>
                 <TableCell className="text-blue-500 cursor-pointer space-x-2">
-                  <Button variant="outline" onClick={() => setViewModal(true)}>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setViewModal(true);
+                      setSingleOrderDetails(order);
+                    }}
+                  >
                     View
                   </Button>
                   <Button variant="primary">Shipped</Button>
@@ -73,7 +87,59 @@ export default function Order() {
         </Table>
       </div>
 
-      <Modal open={viewModal} onOpenChange={setViewModal} />
+      {/* -----------Modal------------ */}
+
+      <Modal
+        open={viewModal}
+        onOpenChange={setViewModal}
+        title={`Order #${singleOrderDetails?.id}`}
+        des={`Order Placed on ${singleOrderDetails?.date}`}
+        contentClassName="w-[450px] max-w-full"
+      >
+        {singleOrderDetails && (
+          <div>
+            <div className="flex items-center justify-between">
+              <p className="font-[14px] text-[#7D8184]">Status</p>
+              <span
+                className={cn(
+                  "font-medium",
+                  singleOrderDetails.status === "Pending" && "text-yellow-500",
+                  singleOrderDetails.status === "Shipped" && "text-blue-500",
+                  singleOrderDetails.status === "Cancelled" && "text-red-500"
+                )}
+              >
+                {singleOrderDetails.status}
+              </span>
+            </div>
+            <hr className="mt-3 mb-2" />
+            <div className="flex items-center justify-between mt-2">
+              <p className="font-[14px] text-[#7D8184]">Product:</p>{" "}
+              <span>{singleOrderDetails?.product_name}</span>
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="font-[14px] text-[#7D8184]">Amount:</p>{" "}
+              <span>{singleOrderDetails?.amount}</span>
+            </div>
+            <div className="flex items-center justify-between mt-2">
+              <p className="font-[14px] text-[#7D8184]">Customer:</p>{" "}
+              <span>{singleOrderDetails?.buyer}</span>
+            </div>
+          </div>
+        )}
+
+        <div className="flex flex-col sm:flex-row gap-2 mt-5 w-full">
+          <Button
+            variant="outline"
+            onClick={() => setViewModal(false)}
+            className="flex-1"
+          >
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleShip} className="flex-1">
+            Ship Order
+          </Button>
+        </div>
+      </Modal>
     </div>
   );
 }

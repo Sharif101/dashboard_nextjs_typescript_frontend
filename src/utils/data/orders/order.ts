@@ -7,6 +7,7 @@ export const orders: Order[] = [
     buyer: "Mike Turner",
     amount: "$200",
     status: "Pending",
+    product_name: "iPhone 14 Pro",
   },
   {
     id: "Ord-02",
@@ -14,6 +15,7 @@ export const orders: Order[] = [
     buyer: "Anna Smith",
     amount: "$350",
     status: "Shipped",
+    product_name: "Samsung Galaxy S23",
   },
   {
     id: "Ord-03",
@@ -21,6 +23,7 @@ export const orders: Order[] = [
     buyer: "John Doe",
     amount: "$120",
     status: "Cancelled",
+    product_name: "Google Pixel 7a",
   },
   {
     id: "Ord-04",
@@ -28,6 +31,7 @@ export const orders: Order[] = [
     buyer: "Lisa Ray",
     amount: "$480",
     status: "Pending",
+    product_name: "MacBook Air M2",
   },
   {
     id: "Ord-05",
@@ -35,6 +39,7 @@ export const orders: Order[] = [
     buyer: "Chris Evans",
     amount: "$299",
     status: "Shipped",
+    product_name: "iPad 10th Gen",
   },
   {
     id: "Ord-06",
@@ -42,6 +47,7 @@ export const orders: Order[] = [
     buyer: "Natalie Portman",
     amount: "$175",
     status: "Pending",
+    product_name: "OnePlus Nord 3",
   },
   {
     id: "Ord-07",
@@ -49,6 +55,7 @@ export const orders: Order[] = [
     buyer: "Robert Downey",
     amount: "$620",
     status: "Cancelled",
+    product_name: "Dell XPS 13",
   },
   {
     id: "Ord-08",
@@ -56,6 +63,7 @@ export const orders: Order[] = [
     buyer: "Scarlett Johansson",
     amount: "$215",
     status: "Shipped",
+    product_name: "Kindle Paperwhite",
   },
   {
     id: "Ord-09",
@@ -63,6 +71,7 @@ export const orders: Order[] = [
     buyer: "Tom Holland",
     amount: "$340",
     status: "Pending",
+    product_name: "Sony WH-1000XM5",
   },
   {
     id: "Ord-10",
@@ -70,6 +79,7 @@ export const orders: Order[] = [
     buyer: "Zendaya",
     amount: "$500",
     status: "Shipped",
+    product_name: "iPhone 13",
   },
   {
     id: "Ord-11",
@@ -77,6 +87,7 @@ export const orders: Order[] = [
     buyer: "Emma Watson",
     amount: "$150",
     status: "Cancelled",
+    product_name: "Logitech MX Master 3",
   },
   {
     id: "Ord-12",
@@ -84,6 +95,7 @@ export const orders: Order[] = [
     buyer: "Daniel Radcliffe",
     amount: "$410",
     status: "Shipped",
+    product_name: "Samsung Tab S8",
   },
   {
     id: "Ord-13",
@@ -91,6 +103,7 @@ export const orders: Order[] = [
     buyer: "Rupert Grint",
     amount: "$330",
     status: "Pending",
+    product_name: "Apple Watch Series 8",
   },
   {
     id: "Ord-14",
@@ -98,6 +111,7 @@ export const orders: Order[] = [
     buyer: "Gal Gadot",
     amount: "$225",
     status: "Cancelled",
+    product_name: "ASUS ROG Phone 7",
   },
   {
     id: "Ord-15",
@@ -105,6 +119,7 @@ export const orders: Order[] = [
     buyer: "Henry Cavill",
     amount: "$660",
     status: "Shipped",
+    product_name: "MSI Gaming Laptop",
   },
   {
     id: "Ord-16",
@@ -112,6 +127,7 @@ export const orders: Order[] = [
     buyer: "Jason Momoa",
     amount: "$290",
     status: "Pending",
+    product_name: "Realme GT Neo 5",
   },
   {
     id: "Ord-17",
@@ -119,6 +135,7 @@ export const orders: Order[] = [
     buyer: "Ezra Miller",
     amount: "$310",
     status: "Shipped",
+    product_name: "Xiaomi Pad 6",
   },
   {
     id: "Ord-18",
@@ -126,6 +143,7 @@ export const orders: Order[] = [
     buyer: "Ben Affleck",
     amount: "$275",
     status: "Cancelled",
+    product_name: "Lenovo IdeaPad 5",
   },
   {
     id: "Ord-19",
@@ -133,6 +151,7 @@ export const orders: Order[] = [
     buyer: "Christian Bale",
     amount: "$600",
     status: "Pending",
+    product_name: "HP Spectre x360",
   },
   {
     id: "Ord-20",
@@ -140,5 +159,6 @@ export const orders: Order[] = [
     buyer: "Margot Robbie",
     amount: "$440",
     status: "Shipped",
+    product_name: "Nothing Phone 2",
   },
 ];

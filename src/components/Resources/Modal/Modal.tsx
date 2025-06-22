@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   Dialog,
   DialogContent,
@@ -6,25 +6,36 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 type ModalProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  title: string;
+  children: ReactNode;
+  onCancel?: () => void;
+  onShip?: () => void;
+  des: string;
+  contentClassName?: string;
 };
 
-export default function Modal(props: ModalProps) {
-  const { open, onOpenChange } = props;
-
+export default function Modal({
+  open,
+  onOpenChange,
+  title,
+  children,
+  des,
+  contentClassName,
+}: ModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent className={cn("p-6", contentClassName)}>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
+          <DialogTitle className="text-lg font-semibold">{title}</DialogTitle>
+          <DialogDescription className="mt-[-10px]">{des}</DialogDescription>
         </DialogHeader>
+
+        <div>{children}</div>
       </DialogContent>
     </Dialog>
   );
