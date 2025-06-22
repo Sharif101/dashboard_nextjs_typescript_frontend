@@ -15,6 +15,7 @@ import Modal from "../Resources/Modal/Modal";
 import { orders } from "@/utils/data/orders/order";
 import { cn } from "@/lib/utils";
 import { OrderType } from "@/utils/data/orders/type";
+import Link from "next/link";
 
 export default function Order() {
   const [tabs, setTabs] = useState("All");
@@ -127,9 +128,11 @@ export default function Order() {
           >
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleShip} className="flex-1">
-            Ship Order
-          </Button>
+          <Link href="/dashboard/orders/orderdetail">
+            <Button variant="primary" onClick={handleShip} className="flex-1">
+              Ship Order
+            </Button>
+          </Link>
         </div>
       </Modal>
     </div>
