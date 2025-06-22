@@ -1,4 +1,4 @@
-export type Order = {
+export type OrderType = {
   id: string;
   date: string;
   buyer: string;

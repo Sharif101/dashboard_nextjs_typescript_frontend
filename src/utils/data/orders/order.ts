@@ -1,6 +1,6 @@
-import { Order } from "./type";
+import { OrderType } from "./type";
 
-export const orders: Order[] = [
+export const orders: OrderType[] = [
   {
     id: "Ord-01",
     date: "May 15, 2025",

@@ -14,15 +14,7 @@ import { Button } from "../ui/button";
 import Modal from "../Resources/Modal/Modal";
 import { orders } from "@/utils/data/orders/order";
 import { cn } from "@/lib/utils";
-
-type OrderType = {
-  id: string;
-  date: string;
-  buyer: string;
-  amount: string;
-  status: string;
-  product_name: string;
-};
+import { OrderType } from "@/utils/data/orders/type";
 
 export default function Order() {
   const [tabs, setTabs] = useState("All");
