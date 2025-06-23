@@ -123,15 +123,17 @@ export default function Order() {
         )}
 
         <div className="flex flex-col sm:flex-row gap-2 mt-5 w-full">
-          <Button
-            variant="outline"
-            onClick={() => setViewModal(false)}
-            className="flex-1"
-          >
-            Cancel
-          </Button>
-          <Link href="/dashboard/orders/orderdetail">
-            <Button variant="primary" onClick={handleShip} className="flex-1">
+          <div className="flex-1">
+            <Button
+              variant="outline"
+              onClick={() => setViewModal(false)}
+              className="w-full"
+            >
+              Cancel
+            </Button>
+          </div>
+          <Link href="/dashboard/orders/orderdetail" className="flex-1">
+            <Button variant="primary" onClick={handleShip} className="w-full">
               Ship Order
             </Button>
           </Link>
