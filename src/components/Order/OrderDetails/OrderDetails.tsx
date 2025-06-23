@@ -23,7 +23,7 @@ export default function OrderDetails() {
           <Button variant="outline">
             <FaPrint className="mr-2 h-4 w-4" /> Print Invoice
           </Button>
-          <Button variant="destructive">
+          <Button variant="primary">
             <FaPhoneAlt className="mr-2 h-4 w-4" /> Contact Buyer
           </Button>
         </div>
@@ -166,11 +166,11 @@ export default function OrderDetails() {
         </div>
 
         {/* Footer Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-end">
-          <Button variant="outline" className="sm:w-40 w-full">
+        <div className="flex flex-col sm:flex-row gap-3 justify-start">
+          <Button variant="cancel" className="sm:w-40 w-full">
             Cancel Order
           </Button>
-          <Button variant="default" className="sm:w-40 w-full">
+          <Button variant="primary" className="sm:w-40 w-full">
             Ship Order
           </Button>
         </div>

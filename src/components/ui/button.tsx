@@ -22,6 +22,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         primary:
           "bg-[#db4444] hover:bg-[#c43c3c] text-white text-sm font-medium rounded cursor-pointer",
+        cancel:
+          "border border-[#db4444] text-[#db4444] text-sm font-medium rounded cursor-pointer",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
