@@ -1,15 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FaArrowLeft, FaPhoneAlt, FaPrint, FaRegCircle } from "react-icons/fa";
-import { BsCheck2Circle } from "react-icons/bs";
+import { BsCheck2Circle, BsExclamationTriangle } from "react-icons/bs";
+import { RxCross2 } from "react-icons/rx";
+import { MdOutlineLocalShipping } from "react-icons/md";
+import { OrderTimeline } from "@/utils/static";
+import Modal from "@/components/Resources/Modal/Modal";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function OrderDetails() {
+  const [viewModal, setViewModal] = useState(false);
+
+  console.log(viewModal);
+
   return (
     <div className="max-w-8xl mx-auto p-6 space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3 mb-2">
           <Button variant="ghost" size="sm" className="p-1 h-8 w-8">
@@ -30,7 +39,6 @@ export default function OrderDetails() {
       </div>
 
       <div className="bg-white shadow-sm border border-gray-200 w-full p-6 rounded">
-        {/* Product Card */}
         <Card className="w-[70%]">
           <CardContent className="p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
             <div className="flex items-center gap-4">
@@ -65,31 +73,11 @@ export default function OrderDetails() {
           </CardContent>
         </Card>
 
-        {/* Detail Grids */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 my-6">
-          {/* Timeline */}
           <Card>
             <CardContent className="p-4 space-y-4">
               <h3 className="font-medium">Timeline</h3>
-              {[
-                { label: "Order Placed", date: "May 15, 2025", active: true },
-                {
-                  label: "Payment Confirmed",
-                  date: "May 15, 2025",
-                  active: true,
-                },
-                {
-                  label: "Processed",
-                  date: "Waiting for processing",
-                  active: false,
-                },
-                { label: "Shipped", date: "Not shipped yet", active: false },
-                {
-                  label: "Delivered",
-                  date: "Waiting for delivery",
-                  active: false,
-                },
-              ].map((item, index) => (
+              {OrderTimeline.map((item, index) => (
                 <div key={index} className="flex items-start gap-2">
                   {item.active ? (
                     <BsCheck2Circle className="text-blue-600 w-4 h-4 mt-1" />
@@ -105,7 +93,6 @@ export default function OrderDetails() {
             </CardContent>
           </Card>
 
-          {/* Buyer Info */}
           <Card>
             <CardContent className="p-4 space-y-4">
               <h3 className="font-medium">Buyer Information</h3>
@@ -135,7 +122,6 @@ export default function OrderDetails() {
             </CardContent>
           </Card>
 
-          {/* Payment Info */}
           <Card>
             <CardContent className="p-4 space-y-3">
               <h3 className="font-medium">Payment Info</h3>
@@ -155,7 +141,6 @@ export default function OrderDetails() {
                 <span>Discount</span>
                 <span>$00.00</span>
               </div>
-              {/* <Separator /> */}
               <hr />
               <div className="flex justify-between text-base font-semibold">
                 <span>Total</span>
@@ -165,16 +150,88 @@ export default function OrderDetails() {
           </Card>
         </div>
 
-        {/* Footer Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 justify-start">
-          <Button variant="cancel" className="sm:w-40 w-full">
+          <Button
+            variant="cancel"
+            className="sm:w-40 w-full"
+            onClick={() => setViewModal(true)}
+          >
+            <RxCross2 className="mr-2 h-4 w-4" />
             Cancel Order
           </Button>
           <Button variant="primary" className="sm:w-40 w-full">
-            Ship Order
+            <MdOutlineLocalShipping className="mr-2 h-4 w-4" /> Ship Order
           </Button>
         </div>
       </div>
+
+      <Modal
+        open={viewModal}
+        onOpenChange={setViewModal}
+        title={``}
+        des={``}
+        contentClassName="w-[450px] max-w-full"
+      >
+        <div>
+          <div className="flex flex-col items-center">
+            <div className="bg-[#FCEEF1] p-3 rounded-[50%]">
+              <BsExclamationTriangle className="text-[18px] text-[#DB4444]" />
+            </div>
+            <p className="text-[#000000] text-[16px] font-bold py-2">
+              Cancel Order ?
+            </p>
+            <p className="text-[#7D8184] text-[13px] text-center">
+              Are you sure you want to cancel this order? The customer will be
+              notified and the order will be marked as cancelled.
+            </p>
+          </div>
+
+          <div>
+            <div className="space-y-2 mt-4">
+              <Label htmlFor="reason">
+                Reason for cancellation <span className="text-red-500">*</span>
+              </Label>
+              <Textarea
+                id="reason"
+                placeholder="Enter reason for cancellation"
+                className="resize-none"
+              />
+            </div>
+          </div>
+
+          <div className="border border-[#D1D5DB] rounded-[7px] my-4 p-3">
+            <div className="flex items-center justify-between mt-1">
+              <p className="text-[14px] text-[#7D8184]">Order ID:</p>
+              <span>#1243</span>
+            </div>
+            <div className="flex items-center justify-between mt-1">
+              <p className="text-[14px] text-[#7D8184]">Product:</p>
+              <span>Wireless Earbuds X200</span>
+            </div>
+            <div className="flex items-center justify-between mt-1">
+              <p className="text-[14px] text-[#7D8184]">Customer:</p>
+              <span>Jane Doe</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-2 mt-5 w-full">
+            <div className="flex-1">
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={() => setViewModal(false)}
+              >
+                Keep Order
+              </Button>
+            </div>
+            <div className="flex-1">
+              <Button variant="primary" className="w-full">
+                Cancel Order
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

@@ -24,7 +24,6 @@ export default function Order() {
     useState<OrderType | null>(null);
 
   const handleShip = () => {
-    console.log("Order shipped!");
     setViewModal(false);
   };
 
@@ -108,15 +107,15 @@ export default function Order() {
             </div>
             <hr className="mt-3 mb-2" />
             <div className="flex items-center justify-between mt-2">
-              <p className="font-[14px] text-[#7D8184]">Product:</p>{" "}
+              <p className="text-[14px] text-[#7D8184]">Product:</p>{" "}
               <span>{singleOrderDetails?.product_name}</span>
             </div>
             <div className="flex items-center justify-between mt-2">
-              <p className="font-[14px] text-[#7D8184]">Amount:</p>{" "}
+              <p className="text-[14px] text-[#7D8184]">Amount:</p>{" "}
               <span>{singleOrderDetails?.amount}</span>
             </div>
             <div className="flex items-center justify-between mt-2">
-              <p className="font-[14px] text-[#7D8184]">Customer:</p>{" "}
+              <p className="text-[14px] text-[#7D8184]">Customer:</p>{" "}
               <span>{singleOrderDetails?.buyer}</span>
             </div>
           </div>

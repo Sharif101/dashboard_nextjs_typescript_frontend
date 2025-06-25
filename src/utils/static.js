@@ -96,3 +96,23 @@ export const features = [
   "Fingerprint",
   "Water Resistant",
 ];
+
+export const OrderTimeline = [
+  { label: "Order Placed", date: "May 15, 2025", active: true },
+  {
+    label: "Payment Confirmed",
+    date: "May 15, 2025",
+    active: true,
+  },
+  {
+    label: "Processed",
+    date: "Waiting for processing",
+    active: false,
+  },
+  { label: "Shipped", date: "Not shipped yet", active: false },
+  {
+    label: "Delivered",
+    date: "Waiting for delivery",
+    active: false,
+  },
+];
