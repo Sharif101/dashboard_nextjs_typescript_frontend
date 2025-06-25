@@ -142,8 +142,8 @@ export default function AddProduct() {
         {/* --------four part---------- */}
         <Additional />
 
-        <div>
-          <Button variant="primary" type="submit">
+        <div className="mt-4 flex justify-end">
+          <Button variant="primary" type="submit" className="w-[10em]">
             Submit
           </Button>
         </div>
