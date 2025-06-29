@@ -50,16 +50,16 @@ export default function Order() {
                 <TableCell>{order.id}</TableCell>
                 <TableCell>{order.date}</TableCell>
                 <TableCell>{order.buyer}</TableCell>
-                <TableCell>{order.amount}</TableCell>
+                <TableCell>{order.total_payable_amount}</TableCell>
                 <TableCell
                   className={cn(
                     "font-medium",
-                    order.status === "Pending" && "text-yellow-600",
-                    order.status === "Shipped" && "text-blue-600",
-                    order.status === "Cancelled" && "text-red-600"
+                    order.order_status === "Pending" && "text-yellow-600",
+                    order.order_status === "Shipped" && "text-blue-600",
+                    order.order_status === "Cancelled" && "text-red-600"
                   )}
                 >
-                  {order.status}
+                  {order.order_status}
                 </TableCell>
                 <TableCell className="text-blue-500 cursor-pointer space-x-2">
                   <Button
@@ -71,7 +71,7 @@ export default function Order() {
                   >
                     View
                   </Button>
-                  <Link href="/dashboard/orders/orderdetail">
+                  <Link href={`/dashboard/orders/orderdetail/${order.id}`}>
                     <Button variant="primary">Shipped</Button>
                   </Link>
                 </TableCell>
@@ -97,12 +97,15 @@ export default function Order() {
               <span
                 className={cn(
                   "font-medium",
-                  singleOrderDetails.status === "Pending" && "text-yellow-500",
-                  singleOrderDetails.status === "Shipped" && "text-blue-500",
-                  singleOrderDetails.status === "Cancelled" && "text-red-500"
+                  singleOrderDetails.order_status === "Pending" &&
+                    "text-yellow-500",
+                  singleOrderDetails.order_status === "Shipped" &&
+                    "text-blue-500",
+                  singleOrderDetails.order_status === "Cancelled" &&
+                    "text-red-500"
                 )}
               >
-                {singleOrderDetails.status}
+                {singleOrderDetails.order_status}
               </span>
             </div>
             <hr className="mt-3 mb-2" />
@@ -112,7 +115,7 @@ export default function Order() {
             </div>
             <div className="flex items-center justify-between mt-2">
               <p className="text-[14px] text-[#7D8184]">Amount:</p>{" "}
-              <span>{singleOrderDetails?.amount}</span>
+              <span>{singleOrderDetails?.order_status}</span>
             </div>
             <div className="flex items-center justify-between mt-2">
               <p className="text-[14px] text-[#7D8184]">Customer:</p>{" "}

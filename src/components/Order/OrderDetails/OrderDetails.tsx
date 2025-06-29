@@ -11,11 +11,12 @@ import { OrderTimeline } from "@/utils/static";
 import Modal from "@/components/Resources/Modal/Modal";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { OrderType } from "@/utils/data/orders/type";
 
-export default function OrderDetails() {
+export default function OrderDetails({ order }: { order: OrderType }) {
   const [viewModal, setViewModal] = useState(false);
 
-  console.log(viewModal);
+  console.log({ order });
 
   return (
     <div className="max-w-8xl mx-auto p-6 space-y-6">

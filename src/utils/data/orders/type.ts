@@ -2,9 +2,19 @@ export type OrderType = {
   id: string;
   date: string;
   buyer: string;
-  amount: string;
-  status: string;
+  buyer_name: string;
+  buyer_email: string;
+  buyer_phone: string;
+  order_status: string;
+  total_payable_amount: string;
   product_name: string;
+  payment_status: string;
+  payment_method: string;
+  shipping_address: string;
+  subtotal: string;
+  discount: string;
+  tax: string;
+  delivery_crg: string;
 };
 
 export type ProductType = {
